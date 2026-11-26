@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pytanko</title>
+</head>
+<body>
+    <h1>clicker</h1>
+    <p>Clicks: <span id="count">0</span></p>
+    <button id="click-button" class="game-button" type="button">+1</button>
+     <button id="click-button2" class="game-button" type="button">x2</button>
+     <button id="click-button3" class="game-button" type="button">reset</button>
+     <button id="click-button4" class="game-button" type="button">end</button>
+    <img src="https://cus.adamowka.pl/wp-content/uploads/2020/03/info.jpg" alt="Info">
+    <script src="szkola.js"></script>
+    <style>
+        body {
+            background-color: rgb(150, 150, 150);
+        }
+
+        .game-button {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.2s ease;
+            transform: scale(1);
+        }
+
+        .game-button:hover {
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .game-button:active {
+            transform: translateY(1px) scale(0.94);
+        }
+
+        .count-pop {
+            display: inline-block;
+            animation: countPop 0.25s ease;
+        }
+
+        .ripple {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.65);
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(0);
+            animation: rippleEffect 0.55s ease-out forwards;
+        }
+
+        .click-spark {
+            position: fixed;
+            z-index: 1000;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+            pointer-events: none;
+            animation: sparkEffect 0.5s ease-out forwards;
+        }
+
+        @keyframes rippleEffect {
+            to {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(5);
+            }
+        }
+
+        @keyframes countPop {
+            50% {
+                color: #e91e63;
+                transform: scale(1.35);
+            }
+        }
+
+        @keyframes sparkEffect {
+            to {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) scale(0);
+            }
+        }
+    </style>
+</body>
+</html>
