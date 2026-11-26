@@ -38,7 +38,7 @@ clickButton.addEventListener("click", () => {
     countDisplay.textContent = count;
 });
 
-const countDisplay2 = document.getElementById("count");
+const countDisplay = document.getElementById("count");
 // ...
 
 const clickButton2 = document.getElementById("click-button2");
